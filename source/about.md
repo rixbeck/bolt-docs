@@ -1,39 +1,37 @@
-About Bolt
+A Bolt
 ==========
 
-Bolt is a tool for Content Management, which strives to be as simple and
-straightforward as possible. It is quick to set up, easy to configure, uses
-elegant templates, and above all: It's a joy to use. Bolt is created using
-modern Open Source libraries, and is best suited to build sites in HTML5, with
-modern markup.
+A Bolt egy olyan tartalomkezelő rendszer (CMS), amelyet leginkább az egyszerűség
+és hatékonyság jellemez. Gyorsasn telepíthető, könnyű beállítani, elegáns sablonokat
+használ, összességében: élmény használni. A Bolt modern, nyílt forráskódú összetevőkre
+épül és a leginkább HTML5 alapú webszájtok létrehozására alkalmas.
 
-Basically, there are three groups of users we've created Bolt for:
+Alapvetően az alábbi felhasználói csoportok számára hoztuk létre a Boltot:
 
- - End users (read 'editors') that want to focus on producing and editing
-   content, and not on clicking buttons in the CMS.
- - Front-end designers and developers who like to write clean markup, and who
-   want to build websites where the CMS doesn't dictate what the templates or
-   site should look like.
- - Developers who need a system that's easy to set up and configure, that's easy
-   to manage and maintain, but is also flexible and versatile.
+ - Végfelhasználóknak (szerkesztőknek) akik leginkább tartalmak létrehozására és
+   szerkesztésére összpontosítanak, nem pedig a CMS kezelésére.
+ - Site designereknek és fejlesztőknek akik szeretnek olyan áttekinthető forrásanyaggal
+   dolgozni, ahol nem a CMS határozza meg számukra, hogy kell egy szájtnak vagy
+   sablonnak kinéznie.
+ - Olyan fejlesztőknek akiknek egy könnyen konfigurálható rendszerre van szükségük
+   amit könnyű karbantartani és üzemeltetni, ugyanakkor rugalmas és sokoldalú is egyben.
 
-Using Bolt as a content editor: you don't have to know anything about HTML, CSS,
-PHP or any of the other technical stuff we used to build Bolt. Using Bolt should
-be about writing and editing content, so that's the focus of Bolt's user
-interface. Far more information about how Bolt works can be found in the [User
-manual](http://manual.bolt.cm/).
+Ha szerkesztőként használnád a Boltot nem kell tudnod, mi a HTML, CSS, PHP vagy hogy
+milyen technikai eszközöket használtunk a Bolt létrehozásakor. A Bolt használata
+számodra a tartalom szerkesztésről és létrehozásról fog szólni, melynek középpontjában
+a Bolt felhasználói felülete áll. A Bolt részletes működéséről további információkat a
+[felhasználói segédletben](http://manual.bolt.cm/) találsz.
 
-Building a website with Bolt: we assume you have the usual Frontender skills.
-You know HTML/CSS, and have working knowledge about JavaScript so you can
-implement things like Google Analytics trackers, jQuery plugins and such. To
-create a working site out of your static HTML, you'll need to know about how
-Bolt uses Content and Contenttypes, and how to make templates using Twig.
-Information about those topics can be found in the chapters [Working with
-Content and Content types](/content) and [Building templates](/templates).
+Ha webszájtot építesz a Bolttal feltételezhetően rendelkezel az ilyenkor szükséges, általános
+alapismeretekkel, ismered a HTML/CSS és Javascript alapokat melyekkel össze tudsz
+állítani Google Analytics trekkert, JQuery kiegészítőket és hasonló dolgokat. Ha statikus
+tartalomból szeretnél egy működő Bolt szájtot létrehozni meg kell ismerd, hogy működik
+a Tartalom (Content) és Tatralomtípus (Contenttype) és hogy kell Twig sablonokat
+készíteni. Ezekről bővebben a [Tartalomtípusok és Tartalmak](/content) és [Sablonok
+kialakítása](/templates) fejezetekben.
 
-With creating Bolt we wanted to focus on creating something simple,
-straightforward and enjoyable. If you need to build a site with 'enterprise'
-features, you'll quickly find that there are better tools. If you need something
-like this, you might look into Drupal or Expression Engine. If, however, you
-need to build a site without a billion modules or huge datastructures, nothing
-beats Bolt for ease of use.
+A Bolt létrehozásával szerettünk volna valami egyszerű, jól használható és szerethető
+eszközt alkotni. A Bolt egyszerűsége és rugalmassága verhetetlen amennyiben nincs
+szükséged egy olyan "vállalati szintű" portálra, amely mudulok millióiból és gigászi
+adatstruktúrákból épül fel.
+
