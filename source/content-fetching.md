@@ -1,9 +1,8 @@
-Fetching content
+Tartalom elérése
 ================
 
-To get content from the database, you can use the `setcontent` tag. The
-following example will get the content record with slug 'about' from the 'pages'
-contenttype:
+A kívánt tartalom a `setcontent` tag használatával érhető el. Az alábbi példa
+egy 'pages' tartalomtípusú és 'about' slug című rekordot fog betölteni.
 
 <pre class="brush: html">
 {% setcontent about = 'page/about' %}
@@ -11,16 +10,18 @@ contenttype:
 {{ print(about) }}
 </pre>
 
-There are a lot of options for the `setcontent` tag. Most are optional, and all
-can be used together any way you'd like. The most basic syntax is:
+A `setcontent` tag több opcióval is használható, a legtöbb ezek közül opcionális.
+A legáltalánosabb formája:
 
 <code>
 {% setcontent _variable_ = '_contenttype_' %}
 </code>
 
-This will set a _variable_ to contain the records of the given _contenttype_.
-For example: `{% setcontent mypages = 'pages' %}` will set `{{ mypages }}` to an
-array of all the records in 'pages'.
+Ez egy megadott _contenttype_ tartalomtípusú rekordot fog a _variable_ változóba
+betölteni.
+
+Például a `{% setcontent mypages = 'pages' %}` a `{{ mypages }}` változót
+tölti fel a 'pages' összes értékét tartalmazó tömbbel.
 
 Trimming the amount of results
 ------------------------------
@@ -133,7 +134,7 @@ you should always use the _plural_ name of the taxonomy in the query:
 {% setcontent mypages = 'pages' where { tags: 'book || movie' } %}
 </pre>
 
-### Selecting on dates 
+### Selecting on dates
 
 You can use several 'shortcuts' for selecting records with dates in the past or
 future. Some examples are:
@@ -142,10 +143,10 @@ future. Some examples are:
   - `today` - The current date, today at midnight.
   - `tomorrow` - The date of tomorrow, at midnight.
   - `yesterday` - The date of yesterday, at midnight.
-  - `last year` 
-  - `next thursday` 
+  - `last year`
+  - `next thursday`
 
-You can use these date notations like this: 
+You can use these date notations like this:
 
 <pre class="brush: html">
 {# Selecting pages published _before_ yesterday #}
@@ -161,9 +162,9 @@ You can use these date notations like this:
 {% setcontent mypages = 'pages' where { datepublish: '&gt;today', datepublish: '&lt;tomorrow' } %}
 </pre>
 
-<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field 
-that is a date, you can use relative, textual dates, like <code>'last monday'</code> 
-or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>strtotime()</code> 
+<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field
+that is a date, you can use relative, textual dates, like <code>'last monday'</code>
+or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>strtotime()</code>
 funtion for this, so we refer to its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank">
 manual page</a> for details. </p>
 
@@ -209,7 +210,7 @@ columns. For example:
 {% setcontent mypages = 'pages' where { city: 'Amsterdam', 'username ||| firstname': 'pete ||| Mike' } %}
 
 {# Query output:
-    WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) ) 
+    WHERE ( (city = 'Amsterdam') AND ( (username = 'pete') OR (firstname = 'Mike') ) )
 #}
 </pre>
 
@@ -267,11 +268,11 @@ Bolt tries to make an assumption about how you want to use it, based on what
 you're requesting. By default, an array is returned, unless one of the following
 is the case:
 
-  - `{% setcontent foo = 'bar/1' %}` or `{% setcontent foo = 'bar/qux' %}`: When 
+  - `{% setcontent foo = 'bar/1' %}` or `{% setcontent foo = 'bar/qux' %}`: When
     requesting one specific record, only one is returned.
-  - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular slug 
+  - `{% setcontent foo = 'page' where { .. } %}`: If 'page' is the singular slug
     of the contenttype 'pages', Bolt assumes you only need one.
-  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the 'returnsingle' parameter 
+  - `{% setcontent foo = 'pages' .. returnsingle %}`: If the 'returnsingle' parameter
     is passed, Bolt assumes you only need one result.
 
 If you use `limit 1`, you will get an array with 1 record. Unless, of course,
