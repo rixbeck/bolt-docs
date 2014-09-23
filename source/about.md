@@ -30,8 +30,7 @@ a Tartalom (Content) és Tatralomtípus (Contenttype) és hogy kell Twig sablono
 készíteni. Ezekről bővebben a [Tartalomtípusok és Tartalmak](/content) és [Sablonok
 kialakítása](/templates) fejezetekben.
 
-A Bolt létrehozásával szerettünk volna valami egyszerű, jól használható és szerethető
-eszközt alkotni. A Bolt egyszerűsége és rugalmassága verhetetlen amennyiben nincs
-szükséged egy olyan "vállalati szintű" portálra, amely mudulok millióiból és gigászi
-adatstruktúrákból épül fel.
-
+Az egyszerűségének köszönhetően a Bolt egy kis erőforrásigényű tartalomkezelő rendszer.
+Önállóan nem biztosítja mindazokat a szolgáltatásokat amiket a nagyobb rendszerek,
+de moduláris jellegével és lazán kapcsolódó komponenseivel ideális alaprendszer lehet
+kis- és nagy rendszerek kialakításához egyaránt.
