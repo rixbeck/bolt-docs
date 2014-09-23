@@ -23,12 +23,13 @@ betölteni.
 Például a `{% setcontent mypages = 'pages' %}` a `{{ mypages }}` változót
 tölti fel a 'pages' összes értékét tartalmazó tömbbel.
 
-Trimming the amount of results
-------------------------------
+Az eredménylista korlátozása
+----------------------------
 
-Normally, you don't need _all_ records, but a subset of the available records..
-You can limit the number of records by using a 'where' clause (more on that
-below), but often it's easier to use the shortcut Bolt provides.
+Általában nincs szükség az _összes_ rekord elérésére csupán annak csak egy
+részére. A 'where' kulcsszó használatával korlátozhatod a kapott rekordok számát
+(bővebben lejjeb), bár gyakran egyszerűbb egy a Bolt által biztosított rövidítést
+használni.
 
 If you need a single record, and know its id or slug, you can do this:
 
