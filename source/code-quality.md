@@ -1,11 +1,16 @@
-Code Quality
-============
+Kód minőség
+===========
 
-The larger a project gets, the harder it is to maintain a particular code
-quality and standard. Every developer has his own coding style and way of doing
-things. Although there must be enough space to not force people to do their
-work in the way the author(s) of bolt think it should, it's important to set
-particular bounds for people to operate within.
+Ahogy egy projekt növekszik úgy válik egyre nehezebbé megőrizni a kód minőségét.
+Minden fejlesztőnek megvan a maga programozási stílusa, hogy hogyan szereti
+szervezni a programkódot. Azzal együtt, hogy a fejlesztőknek kell adni bizonyos
+szabadságot ezen a téren, mégis szükség van rá, hogy a fejlesztés menetét bizonyos
+keretek között tartsuk.
+
+Függőségek kezelése
+-------------------
+A Github alapértelmezett csomagkezelő eszköze a [Composer](http://getcomposer.org).
+
 
 Dependency Management
 ---------------------
