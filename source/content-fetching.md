@@ -31,18 +31,18 @@ részére. A 'where' kulcsszó használatával korlátozhatod a kapott rekordok 
 (bővebben lejjeb), bár gyakran egyszerűbb egy a Bolt által biztosított rövidítést
 használni.
 
-If you need a single record, and know its id or slug, you can do this:
+Ha egy rekordra van szükség és ismert az id vagy a slug, így is használhatod:
 
 <pre class="brush: html">
-{# get the page with slug 'about' #}
+{# page betöltése slug 'about' használatával #}
 {% setcontent about = 'page/about' %}
 
-{# get the newsitem with id 12 #}
+{# newsitem elérése id 12 -vel #}
 {% setcontent news = 'news/12' %}
 </pre>
 
-If you need the '5 latest pages' or '3 first reviews', there's also a shortcut
-for that:
+Ha az 'utolsó 5 pages' vagy az 'első 3 reviews' tételre lenne szükség, arra is
+van lehetőség:
 
 <pre class="brush: html">
 {% setcontent latestpages = 'pages/latest/5' %}
@@ -58,45 +58,45 @@ and:
 {{ print(firstreviews) }}
 </pre>
 
-Using `where`
+A `where` használata
 -------------
 
-If you need a more specific criteria to select the records on, you can use the
-`where` clause. The parameters must be listed as a hash, so you can include more
-than one, if needed.
+Ha sokkal részletesebb és pontosabb feltétel szerint szeretnél rekordokat kiválasztani,
+használhatod a `where` feltételt. A paramétereket hashként kell felsorolni tehát több
+elemből állhat.
 
 <pre class="brush: html">
-{# get all pages with username 'bob' #}
+{# az összes pages amiben a username 'bob' #}
 {% setcontent mypages = 'pages' where { username: 'bob' } %}
 
-{# get all events with eventdate '2012-10-15' #}
+{# az összes events ahol az eventdate '2012-10-15' #}
 {% setcontent myevents = 'events' where { eventdate: '2012-10-15' } %}
 
 </pre>
 
-The above examples selected records based on the parameter being **equal** to
-the matching field in the available records. It's also possible to use modifiers
-for the values, to select based on 'smaller than' or 'does not equal'
+A fenti példákban a kiválasztott rekordok **egyenlőség** esetén találják meg a
+szükséges rekordokat. Van lehetőség 'kisebb vagy engyelő' vagy 'nem egyenlő'
+feltételek alkalmazására is.
 
 <pre class="brush: html">
-{# get all pages not created by 'bob' #}
+{# az összes pages amiket nem 'bob' hozott létre #}
 {% setcontent mypages = 'pages' where { username: '!bob' } %}
 
-{# get all events with eventdate before '2012-10-15' #}
+{# az összes events amely eventdate mezője '2012-10-15' vagy korábbi #}
 {% setcontent myevents = 'events' where { eventdate: '&lt;2012-10-15' } %}
 
-{# get all blog entries which have been published before last monday #}
+{# a blog bejegyzések amelyek múlt hétfő előtt lettek publikálva #}
 {% setcontent myarticles = 'entries' where { status: 'published', datepublish: '&lt; last monday' } %}
 
-{# get all books with amountsold over 1,000 #}
+{# az összes books tétel amelynél az amountsold nagyobb mint 1,000 #}
 {% setcontent mybooks = 'books' where { amountsold: '&gt;1000' } %}
 </pre>
 
-<p class="tip"><strong>Tip:</strong> When using <code>'&lt;=2012-12-01'</code>
-Bolt only selects dates before or equal to <code>'2012-12-01 00:00:00'</code>.
-If you want to include December 1st, use <code>'&lt;2012-12-02'</code>. </p>
+<p class="tip"><strong>Tipp:</strong><code>'&lt;=2012-12-01'</code> esetén
+Bolt csak azokat a dátumokat választja ki amik kisebb vagy egyenlők <code>'2012-12-01 00:00:00'</code>-nél. Ha azt akarod, hogy December 1 is a beletartozzon, használd a
+<code>'&lt;2012-12-02'</code> formulát. </p>
 
-### The `%like%` option
+### A `%like%` opció
 
 <pre class="brush: html">
 {# get all pages with a title that contains 'ipsum' #}
@@ -278,3 +278,5 @@ is the case:
 
 If you use `limit 1`, you will get an array with 1 record. Unless, of course,
 one of the above criteria was met.
+
+
