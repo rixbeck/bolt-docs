@@ -99,61 +99,58 @@ Bolt csak azokat a dátumokat választja ki amik kisebb vagy egyenlők <code>'20
 ### A `%like%` opció
 
 <pre class="brush: html">
-{# get all pages with a title that contains 'ipsum' #}
+{# az összes oldal ahol a cím 'ipsum'-ot tartalmaz #}
 {% setcontent mypages = 'pages' where { title: '%ipsum%' } %}
 </pre>
 
-The `%like%` option is case-insensitive, and does not take word boundaries into
-account. So, this example will return the pages with these titles:
+A `%like%` opció kis- és nagybetűre nem érzékeny és a szó határokat nem veszi figyelembe. Tehát a fenti példa visszaadja az oldalakat, amelyek címében az alábbiak vannak:
 
   - 'Lorum ipsum dolor'
   - 'LORUM IPSUM DOLOR'
   - 'Lorumipsumdolor'
   - 'ipsumdolor'
 
-But not:
+de ezeket nem:
 
   - 'Lorum ipsüm dolor'
   - 'Lorum ips um dolor'
 
+<p class="tip"><strong>Tipp:</strong> Amikor a <code>%</code>-ot használod, a Bolt
+a mező elejére vagy végére illeszti a keresési mintát. Például:
+a <code>'lore%'</code> és <code>'olor%'</code> mindegyike megtalálja a "Lorem Ipsum
+Dolor", szöveget de az <code>'ipsu%'</code> nem. </p>
 
-<p class="tip"><strong>Tip:</strong> When using only one <code>%</code>, Bolt
-will match only the beginning or the end of the field. For example:
-<code>'lore%'</code> end <code>'olor%'</code> will both match "Lorem Ipsum
-Dolor", but <code>'ipsu%'</code> won't. </p>
+### Taxonómiák használata
 
-### Using taxonomies
-
-You can use the same syntax to get records with a specific taxonomy. Note that
-you should always use the _plural_ name of the taxonomy in the query:
+Ugyanazt a szintaxist használhatod megadott taxonómiával rendelkező rekordok betöltéséhez. Ne feledd, a lekérdezés felépíthető egy adott taxonómia _többesszámú_ nevéből:
 
 <pre class="brush: html">
-{# get all events in the category 'music' #}
+{# az összes 'events' a 'music' kategóriában #}
 {% setcontent myevents = 'events' where { categories: 'music' } %}
 
-{# get all pages with tag 'book' or 'movie' #}
+{# az összes 'pages', 'book' vagy 'movie' taggel #}
 {% setcontent mypages = 'pages' where { tags: 'book || movie' } %}
 </pre>
 
-### Selecting on dates
+### Kiválasztás dátum szerint
 
-You can use several 'shortcuts' for selecting records with dates in the past or
-future. Some examples are:
+Több 'hivatkozás' is van amivel egy múlt- vagy jövőbeli dátum szerint szűrhetsz. 
+Néhány példa:
 
-  - `now` - The current date and time.
-  - `today` - The current date, today at midnight.
-  - `tomorrow` - The date of tomorrow, at midnight.
-  - `yesterday` - The date of yesterday, at midnight.
+  - `now` - A pillanatnyi dátum és időpont.
+  - `today` - A jelenlegi dátum, ma éjfélkor.
+  - `tomorrow` - A holnapi dátum, éjfélkor.
+  - `yesterday` - A tegnapi dátum, éjfélkor.
   - `last year`
   - `next thursday`
 
-You can use these date notations like this:
+A dárum hivatkozásokat így használhatod:
 
 <pre class="brush: html">
-{# Selecting pages published _before_ yesterday #}
+{# 'pages' amik tegnap _előtt_ lettek publikálva #}
 {% setcontent mypages = 'pages' where { datepublish: '&lt;yesterday' } %}
 
-{# If you want to include yesterday in your `where`, use 'before today' #}
+{# ha a tegnapi napot is tartalmaznia kell, a `where`-ben használj 'before today'-t #}
 {% setcontent mypages = 'pages' where { datepublish: '&lt;today' } %}
 
 {# Selecting pages published earlier today, or in the future #}
