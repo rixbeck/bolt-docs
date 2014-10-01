@@ -160,20 +160,17 @@ A dárum hivatkozásokat így használhatod:
 {% setcontent mypages = 'pages' where { datepublish: '&gt;today', datepublish: '&lt;tomorrow' } %}
 </pre>
 
-<p class="tip"><strong>Tip:</strong> When using 'where' statements with a field
-that is a date, you can use relative, textual dates, like <code>'last monday'</code>
-or <code>'&gt; this year'</code>. Internally, Bolt uses the <code>strtotime()</code>
-funtion for this, so we refer to its <a href="http://php.net/manual/en/function.strtotime.php" target="_blank">
-manual page</a> for details. </p>
+<p class="tip"><strong>Tipp:</strong> Egy dátum mezőre hivatkozó 'where' parancs esetében használhatsz olyan szöveges, relatív dátumokat mint a <code>'last monday'</code>
+vagy <code>'&gt; this year'</code>. A Bolt ezeket belül <code>strtotime()</code> függvénnyel konvertálja, így erről részletes információt találsz a <a href="http://php.net/manual/en/function.strtotime.php" target="_blank"> kézikönyvben </a></p>
 
-Like mentioned above, you can add more than one parameter to the where clause:
+Ahogy azt korábban említettük, több paramétert is használhatsz egy 'where' szűrőben:
 
 <pre class="brush: html">
-{# get all pages not created by 'pete', and created after july 2012, with a .jpg image #}
+{# öszes 'pages' amit nem 'pete' kreált és 2012 júl után, egy .jpg képpel együtt jöt létre #}
 {% setcontent mypages = 'pages' where { username: '!pete', datecreated: '>2012-07-31', image: '%.jpg%' } %}
 </pre>
 
-### 'AND' and 'OR'
+### 'AND' és 'OR'
 
 You can use the `&&` and `||`-parameters to select on two criteria for any
 field. However, you can't use something like `where { username: '!pete',
